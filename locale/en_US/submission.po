@@ -551,6 +551,15 @@ msgstr "Recommend that this submission be sent to the external review stage."
 msgid "editor.submission.recommend.sendExternalReview.log"
 msgstr "{$editorName} recommended that this submission be sent to the external review stage."
 
+msgid "editor.submission.decision.backToSubmissionFromInternalReviewRound.description"
+msgstr "The editor can back out from an internal review round to submission stage if no review assignment has completed."
+
+msgid "editor.submission.decision.backToSubmissionFromInternalReviewRound.log"
+msgstr "{$editorName} closed the internal review round and sent this back to the submission stage."
+
+msgid "editor.submission.decision.backToSubmissionFromInternalReviewRound.restriction"
+msgstr "Can not back out to submission from internal review round if there is multipe round available or has any review submitted or completed."
+
 msgid "editor.submission.decision.backToPreviousInternalReviewRound.log"
 msgstr "{$editorName} has backed out from current internal review round to previous round."
 
