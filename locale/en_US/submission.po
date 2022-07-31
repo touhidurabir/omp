@@ -604,3 +604,24 @@ msgstr "This submission can not be moved to internal review because an external 
 
 msgid "editor.submission.decision.backToInternalReview.notifyAuthorsDescription"
 msgstr "Send an email to the authors to let them know that their submission is being sent back to the internal review stage. Explain why this decision was made and inform the author of what further review will be undertaken."
+
+msgid "editor.submission.decision.backFromInternalReview"
+msgstr "Cancel Review Round"
+
+msgid "editor.submission.decision.backFromInternalReview.description"
+msgstr "Submission send it back from the internal review stage."
+
+msgid "editor.submission.decision.backFromInternalReview.log"
+msgstr "{$editorName} has sent back from the internal review."
+
+msgid "editor.submission.decision.backFromInternalReview.completed"
+msgstr "Sent Back from Internal Review"
+
+msgid "editor.submission.decision.backFromInternalReview.completed.description"
+msgstr "The submission, {$title}, was sent back from the internal review stage."
+
+msgid "editor.submission.decision.backFromInternalReview.restriction"
+msgstr "This submission can not be moved current internal review round if any assoicated review assginment has submitted."
+
+msgid "editor.submission.decision.backFromInternalReview.notifyAuthorsDescription"
+msgstr "Send an email to the authors to let them know that their submission is being sent back from the internal review. Explain why this decision was made and inform the author of what further review will be undertaken."
