@@ -70,9 +70,9 @@ class Repository extends \PKP\publication\Repository
     }
 
     /** @copydoc \PKP\publication\Repository::add() */
-    public function add(Publication $publication): int
+    public function add(Publication $publication, false|int|null $submissionStatus = null): int
     {
-        $id = parent::add($publication);
+        $id = parent::add($publication, $submissionStatus);
 
         $publication = $this->get($id);
 
@@ -106,7 +106,7 @@ class Repository extends \PKP\publication\Repository
     }
 
     /** @copydoc \PKP\publication\Repository::version() */
-    public function version(Publication $publication, ?VersionStage $versionStage = null, bool $isMinorVersion = true): int
+    public function version(Publication $publication, ?VersionStage $versionStage = null, bool $isMinorVersion = true, ?int $submissionStatus = null): int
     {
         // Get some data about the publication being versioned before any changes are made
         $oldPublicationFormats = $publication->getData('publicationFormats');
@@ -119,7 +119,7 @@ class Repository extends \PKP\publication\Repository
         $oldPublicationId = $publication->getId();
         $submissionId = $publication->getData('submissionId');
 
-        $newId = parent::version($publication, $versionStage, $isMinorVersion);
+        $newId = parent::version($publication, $versionStage, $isMinorVersion, $submissionStatus);
 
         $newPublication = $this->get($newId);
 
@@ -295,10 +295,10 @@ class Repository extends \PKP\publication\Repository
     }
 
     /** @copydoc \PKP\publication\Repository::publish() */
-    public function publish(Publication $publication)
+    public function publish(Publication $publication, false|int|null $submissionStatus = null): void
     {
         Hook::add('Publication::publish::before', [$this, 'addChapterLicense']);
-        parent::publish($publication);
+        parent::publish($publication, $submissionStatus);
 
         $submission = Repo::submission()->get($publication->getData('submissionId'));
 
@@ -352,9 +352,9 @@ class Repository extends \PKP\publication\Repository
     }
 
     /** @copydoc \PKP\publication\Repository::unpublish() */
-    public function unpublish(Publication $publication)
+    public function unpublish(Publication $publication, false|int|null $submissionStatus = null)
     {
-        parent::unpublish($publication);
+        parent::unpublish($publication, $submissionStatus);
 
         $submission = Repo::submission()->get($publication->getData('submissionId'));
         $submissionContext = app()->get('context')->get($submission->getData('contextId'));
@@ -387,7 +387,7 @@ class Repository extends \PKP\publication\Repository
     }
 
     /** @copydoc \PKP\publication\Repository::delete() */
-    public function delete(Publication $publication)
+    public function delete(Publication $publication, false|int|null $submissionStatus = null): null
     {
         $submission = Repo::submission()->get($publication->getData('submissionId'));
         $context = app()->get('context')->get($submission->getData('contextId'));
@@ -406,7 +406,7 @@ class Repository extends \PKP\publication\Repository
             $chapterDao->deleteObject($chapter);
         }
 
-        parent::delete($publication);
+        parent::delete($publication, $submissionStatus);
     }
 
     /**
