@@ -387,7 +387,7 @@ class Repository extends \PKP\publication\Repository
     }
 
     /** @copydoc \PKP\publication\Repository::delete() */
-    public function delete(Publication $publication, false|int|null $submissionStatus = null): null
+    public function delete(Publication $publication, false|int|null $submissionStatus = null): void
     {
         $submission = Repo::submission()->get($publication->getData('submissionId'));
         $context = app()->get('context')->get($submission->getData('contextId'));
