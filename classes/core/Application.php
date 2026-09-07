@@ -173,7 +173,8 @@ class Application extends PKPApplication
             WORKFLOW_STAGE_ID_INTERNAL_REVIEW,
             WORKFLOW_STAGE_ID_EXTERNAL_REVIEW,
             WORKFLOW_STAGE_ID_EDITING,
-            WORKFLOW_STAGE_ID_PRODUCTION
+            WORKFLOW_STAGE_ID_PRODUCTION,
+            WORKFLOW_STAGE_ID_DONE,
         ];
     }
 
